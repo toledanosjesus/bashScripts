@@ -8,7 +8,7 @@ password="yourpassword"
 action="DELETE"
 table="tablename"
 field="fieldname"
-months="1"
+months="numberofmonthstokeep"
 day=$(date --date="-$months month" +%Y-%m-%d" "%H:%M:%S )
 quit="\nThe script has finished correctly.\nThe rows deleted are from before $day.\n"
 
