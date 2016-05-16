@@ -10,7 +10,7 @@
 LINE="-----------------------------------------"
 
 OUTPUT="nmapFullScan.log"     # Log File
-ADDR="192.168.0.171"          # Address to scan
+ADDR="[IP_ADDRESS_TO_SCAN]"          # Address to scan
 
 SPORT="1"		      # Start Port
 EPORT="10000"	   	      # End Port
