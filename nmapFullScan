@@ -13,10 +13,10 @@ OUTPUT="nmapFullScan.log"     # Log File
 ADDR="192.168.0.171"          # Address to scan
 
 SPORT="1"		      # Start Port
-EPORT="10000"	  	# End Port
-LATEST="65535"		# Latest valid Port
-LIMIT="70001"	  	# Limit for the while loop	
-TOSUM="10000"	  	# Value to increase the variables
+EPORT="10000"	   	      # End Port
+LATEST="65535"		      # Latest valid Port
+LIMIT="70001"	  	      # Limit for the while loop	
+TOSUM="10000"	  	      # Value to increase the variables
 
 
 ##############################	PROGRAM
