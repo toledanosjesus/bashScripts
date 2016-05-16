@@ -37,6 +37,12 @@ do
 		EPORT=$LATEST
 	fi
 
+	echo "" >> $OUTPUT
+	echo "$LINE" >> $OUTPUT
+	echo "Ports from $SPORT to $EPORT" >> $OUTPUT
+	echo "$LINE" >> $OUTPUT
+	echo "" >> $OUTPUT
+
 	# Scan with nmap from the start port to the end port
 	nmap -sT -sV -O -p T:$SPORT-$EPORT $ADDR >> $OUTPUT
 
