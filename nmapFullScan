@@ -1,1 +1,64 @@
 
+#!/bin/sh
+
+####################################################
+##	NMAP FULL SCAN SCRIPT
+####################################################
+
+
+##############################	VARIABLES
+
+LINE="-----------------------------------------"
+
+OUTPUT="nmapFullScan.log"     # Log File
+ADDR="192.168.0.171"          # Address to scan
+
+SPORT="1"		      # Start Port
+EPORT="10000"	  	# End Port
+LATEST="65535"		# Latest valid Port
+LIMIT="70001"	  	# Limit for the while loop	
+TOSUM="10000"	  	# Value to increase the variables
+
+
+##############################	PROGRAM
+
+# Start logging
+echo "$LINE" > $OUTPUT
+echo "" >> $OUTPUT
+echo "Starting scan..." >> $OUTPUT
+echo "" >> $OUTPUT
+echo "$LINE" >> $OUTPUT
+echo "" >> $OUTPUT
+
+# Start While Loop
+while [ $EPORT -lt $LIMIT ];
+do
+	# Compare if the end port is greater than the LIMIT
+	if [ $EPORT -gt $LATEST ];then
+		EPORT=$LATEST
+	fi
+
+	# Scan with nmap from the start port to the end port
+	nmap -sT -sV -O -p T:$SPORT-$EPORT $ADDR >> $OUTPUT
+
+	# If the end port is greater or equal than the LIMIT port
+	# then break the loop
+	if [ $EPORT -ge $LATEST ];then
+		break
+	fi
+
+	# Increase the variables
+	SPORT=$(expr $SPORT + $TOSUM)
+	EPORT=$(expr $EPORT + $TOSUM)
+done
+
+# Finish logging
+echo "" >> $OUTPUT
+echo "$LINE" >> $OUTPUT
+echo "" >> $OUTPUT
+echo "Scan Finished" >> $OUTPUT
+echo "" >> $OUTPUT
+echo "$LINE" >> $OUTPUT
+
+
+##############################	THE END
